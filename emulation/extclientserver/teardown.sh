@@ -11,5 +11,8 @@
 
 
 # delete namespaces
-sudo ip netns del ns1
-sudo ip netns del ns2
+sudo ip netns del cns1
+sudo ip netns del nns1
+sudo ip link del brveth-docker1
+sudo ip link del simveth-client1
+sudo ip link del simveth-nginx1
