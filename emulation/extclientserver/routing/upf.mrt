@@ -6,10 +6,24 @@ name: pppIf
     Mask: 255.255.255.0
     MTU: 1500
     POINTTOPOINT MULTICAST
+
+# interface 0 to the router2
+name: ppp1
+    inet_addr: 10.0.12.2
+    Mask: 255.255.255.0
+    MTU: 1500
+    POINTTOPOINT MULTICAST
     
 # interface 0 to the gnb
 name: ppp0
     inet_addr: 10.0.1.1
+    Mask: 255.255.255.0
+    MTU: 1500
+    POINTTOPOINT MULTICAST
+
+# interface 0 to the gnb2
+name: ppp2
+    inet_addr: 10.0.11.1
     Mask: 255.255.255.0
     MTU: 1500
     POINTTOPOINT MULTICAST
@@ -21,9 +35,9 @@ route:
 10.0.1.0         *                255.255.255.0    H      0       ppp0
 10.0.0.0         *                255.255.255.0    H      0       ppp0
 10.0.2.0         *                255.255.255.0    H      0       pppIf
-192.168.2.0      *                255.255.255.0    H      0       pppIf
-192.168.3.0      *                255.255.255.0    H      0       ppp0
-172.18.0.0       *                255.255.0.0      H      0       ppp0
+10.0.11.0         *                255.255.255.0    H      0       ppp2
+10.0.10.0         *                255.255.255.0    H      0       ppp2
+10.0.12.0         *                255.255.255.0    H      0       ppp1
 0.0.0.0          *                0.0.0.0          G      0       pppIf
 
 routeend.

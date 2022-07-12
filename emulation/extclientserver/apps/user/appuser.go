@@ -8,7 +8,7 @@ import (
 
 func main() {
 	client := &http.Client{}
-	req, err := http.NewRequest("GET", "http://192.168.2.2/prime", nil)
+	req, err := http.NewRequest("GET", "http://192.168.2.100/prime", nil)
 	if err != nil {
 		fmt.Println("error creating request", err)
 		return
