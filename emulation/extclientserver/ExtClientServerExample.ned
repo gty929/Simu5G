@@ -53,7 +53,10 @@ network ExtClientServerExample
         router: Router {
             @display("p=223.875,175.36874;i=device/smallrouter");
         }
-        upf: Upf {
+        upf_A: Upf {
+            @display("p=460.1875,174.125");
+        }
+        upf_B: Upf {
             @display("p=460.1875,174.125");
         }
         gnb: gNodeB {
@@ -61,9 +64,6 @@ network ExtClientServerExample
         }
         router2: Router {
             @display("p=223.875,175.36874;i=device/smallrouter");
-        }
-        upf2: Upf {
-            @display("p=460.1875,174.125");
         }
         gnb2: gNodeB {
             @display("p=671.625,174.125;is=vl");
@@ -75,8 +75,8 @@ network ExtClientServerExample
             @display("p=671.625,432.82498;is=vl");
         }
     connections allowunconnected:
-        router.pppg++ <--> Eth10G <--> upf.filterGate;
-        upf.pppg++ <--> Eth10G <--> gnb.ppp;
-        router2.pppg++ <--> Eth10G <--> upf.pppg++;
-        upf.pppg++ <--> Eth10G <--> gnb2.ppp;
+        router.pppg++ <--> Eth10G <--> upf_A.filterGate;
+        upf_A.pppg++ <--> Eth10G <--> gnb.ppp;
+        router2.pppg++ <--> Eth10G <--> upf_B.filterGate;
+        upf_B.pppg++ <--> Eth10G <--> gnb2.ppp;
 }
