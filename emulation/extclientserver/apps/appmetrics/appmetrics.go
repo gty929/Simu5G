@@ -7,12 +7,12 @@ import (
 )
 
 func main() {
-	testCycle := 50
+	testCycle := 500
 	succeedCycle := 0
 	var totalTime int64
 	totalTime = 0
 	client := &http.Client{Timeout: 5 * time.Second}
-	req, err := http.NewRequest("GET", "http://172.26.114.36/", nil)
+	req, err := http.NewRequest("GET", "http://192.168.2.100/prime", nil)
 	if err != nil {
 		fmt.Println("error creating request", err)
 		return
@@ -32,6 +32,7 @@ func main() {
 			continue
 		}
 		succeedCycle++
+		fmt.Println("succeed")
 		totalTime += timeElapsed
 	}
 	successRate := float32(succeedCycle) / float32(testCycle)

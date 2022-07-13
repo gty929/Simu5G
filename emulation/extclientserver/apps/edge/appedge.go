@@ -17,7 +17,8 @@ func main() {
 	}
 	defer conn.Close()
 	fmt.Println("Received new request!")
-	fmt.Println(conn.LocalAddr().(*net.UDPAddr).IP)
+	ip := conn.LocalAddr().(*net.UDPAddr).IP
+	fmt.Println(ip)
 	http.HandleFunc("/prime", func(w http.ResponseWriter, r *http.Request) {
 
 		numStr := r.Header["Num"][0]
@@ -29,7 +30,8 @@ func main() {
 		}
 		// p := prime.SieveOfEratosthenes(reqNum)
 		fmt.Println("Plus one = ", reqNum+1)
-		fmt.Fprintf(w, "RSP Plus one = %d", reqNum+1)
+		fmt.Fprintf(w, ip.String())
+		fmt.Fprintf(w, " RSP Plus one = %d", reqNum+1)
 	})
 	http.ListenAndServe(":10021", nil)
 }

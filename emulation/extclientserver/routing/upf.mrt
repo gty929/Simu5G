@@ -13,7 +13,7 @@ name: ppp0
     Mask: 255.255.255.0
     MTU: 1500
     POINTTOPOINT MULTICAST
-
+ifconfigend.
 route:
 
 #Destination     Gateway          Genmask          Flags  Metric  Iface

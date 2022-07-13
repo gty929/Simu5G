@@ -13,7 +13,7 @@ func main() {
 		fmt.Println("error creating request", err)
 		return
 	}
-	req.Header.Add("Num", "50000000")
+	req.Header.Add("Num", "100000000")
 	resp, err := client.Do(req)
 	if err != nil {
 		fmt.Println("error sending http request", err)

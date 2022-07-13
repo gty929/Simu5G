@@ -59,7 +59,7 @@ network ExtClientServerExample
         upf_B: Upf {
             @display("p=460.1875,174.125");
         }
-        gnb: gNodeB {
+        gnb1: gNodeB {
             @display("p=671.625,174.125;is=vl");
         }
         router2: Router {
@@ -76,7 +76,8 @@ network ExtClientServerExample
         }
     connections allowunconnected:
         router.pppg++ <--> Eth10G <--> upf_A.filterGate;
-        upf_A.pppg++ <--> Eth10G <--> gnb.ppp;
+        upf_A.pppg++ <--> Eth10G <--> gnb1.ppp;
         router2.pppg++ <--> Eth10G <--> upf_B.filterGate;
         upf_B.pppg++ <--> Eth10G <--> gnb2.ppp;
+        gnb1.x2++ <--> Eth10G <--> gnb2.x2++;
 }

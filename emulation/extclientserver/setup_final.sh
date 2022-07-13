@@ -58,12 +58,12 @@ sudo ip netns exec cns1 ethtool --offload veth-client1 rx off tx off
 sudo ip netns exec nns1 ethtool --offload veth-nginx1 rx off tx off
 sudo ip netns exec nns1 ethtool --offload veth-docker1 rx off tx off
 
-sudo ip netns exec nns1 nginx -c ~/go/src/sigs.k8s.io/scheduler-plugins/mynginx.conf
+sudo ip netns exec nns1 nginx -c ~/go/src/sigs.k8s.io/scheduler-plugins/mynginx1.conf
 
 sudo ip netns exec nns2 ethtool --offload veth-nginx2 rx off tx off
 sudo ip netns exec nns2 ethtool --offload veth-docker2 rx off tx off
 
-sudo ip netns exec nns2 nginx -c ~/go/src/sigs.k8s.io/scheduler-plugins/mynginx.conf
+sudo ip netns exec nns2 nginx -c ~/go/src/sigs.k8s.io/scheduler-plugins/mynginx2.conf
 
 # teardown:
 # sudo ip netns del cns1
