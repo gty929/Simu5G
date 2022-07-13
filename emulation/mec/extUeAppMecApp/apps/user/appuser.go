@@ -8,12 +8,12 @@ import (
 
 func main() {
 	client := &http.Client{}
-	req, err := http.NewRequest("GET", "http://192.168.2.100/prime", nil)
+	req, err := http.NewRequest("GET", "http://10.0.5.1:30007/prime", nil)
 	if err != nil {
 		fmt.Println("error creating request", err)
 		return
 	}
-	req.Header.Add("Num", "1")
+	req.Header.Add("Num", "50000000")
 	resp, err := client.Do(req)
 	if err != nil {
 		fmt.Println("error sending http request", err)

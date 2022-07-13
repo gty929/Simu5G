@@ -2,13 +2,13 @@ ifconfig:
 
 # interface to the radio access network
 name: cellular
-    inet_addr: 10.0.0.100
+    inet_addr: 10.0.0.101
     Mask: 255.255.255.0
     MTU: 1500
     POINTTOPOINT MULTICAST
     
 name: pppIf
-    inet_addr: 10.0.1.2
+    inet_addr: 10.0.1.12
     Mask: 255.255.255.0
     MTU: 1500
     POINTTOPOINT MULTICAST
@@ -28,7 +28,6 @@ route:
 10.0.5.0         *                255.255.255.0    H      0       x2ppp0
 192.168.2.0      *                255.255.255.0    H      0       pppIf
 192.168.3.0      *                255.255.255.0    H      0       cellular
-172.18.0.0       *                255.255.0.0      H      0       cellular
 0.0.0.0          *                0.0.0.0          G      0       pppIf
 
 routeend.

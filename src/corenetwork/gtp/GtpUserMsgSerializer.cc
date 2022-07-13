@@ -12,6 +12,7 @@
 #include "corenetwork/gtp/GtpUserMsg_m.h"
 #include "corenetwork/gtp/GtpUserMsgSerializer.h"
 #include "inet/common/packet/serializer/ChunkSerializerRegistry.h"
+#include "iostream"
 
 using namespace inet;
 
@@ -25,8 +26,11 @@ void GtpUserMsgSerializer::serialize(MemoryOutputStream& stream, const Ptr<const
     stream.writeUint32Be(gtpUserMsg->getTeid());
 
     int64_t remainders = B(gtpUserMsg->getChunkLength() - (stream.getLength() - startPosition)).get();
-    if (remainders < 0)
+    if (remainders < 0) {
+        std::cerr << "gtpUserMsg length = %d smaller than required %d bytes", (int)B(gtpUserMsg->getChunkLength()).get(), (int)B(stream.getLength() - startPosition).get();
+        return;
         throw cRuntimeError("gtpUserMsg length = %d smaller than required %d bytes", (int)B(gtpUserMsg->getChunkLength()).get(), (int)B(stream.getLength() - startPosition).get());
+    }
     stream.writeByteRepeatedly('?', remainders);
 }
 
