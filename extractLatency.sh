@@ -1,0 +1,1 @@
+cat pingData.txt | grep -Eo '=[0-9]+.[0-9] ms' | grep -Eo '[.0-9]*'

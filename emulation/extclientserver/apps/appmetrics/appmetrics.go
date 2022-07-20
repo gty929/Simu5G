@@ -32,7 +32,7 @@ func main() {
 			continue
 		}
 		succeedCycle++
-		fmt.Printf("succeed %d ms\n", timeElapsed/1000)
+		fmt.Printf("%d,", timeElapsed/1000)
 		totalTime += timeElapsed
 		time.Sleep(1 * time.Second)
 	}
