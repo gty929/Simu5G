@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	testCycle := 500
+	testCycle := 120
 	succeedCycle := 0
 	var totalTime int64
 	totalTime = 0
